@@ -17,7 +17,7 @@ import { UserContextProvider } from './UserContext';
 import RedirectToExplore from './Components/Redirect/RedirectToExplore';
 
 const App = () => {
-  axios.defaults.baseURL = "http://localhost:3000/api";
+  axios.defaults.baseURL = "https://blisio-backend-d30f62efe387.herokuapp.com/api"; //live
   axios.defaults.withCredentials = true;
 
   const [ageConfirmed, setAgeConfirmed] = useState(false);
