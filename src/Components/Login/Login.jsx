@@ -19,8 +19,7 @@ const Login = () => {
             });
 
             setUser(data);
-            navigate("/explore");
-            window.location.reload();
+   
 
         } catch (e) {
             alert("Error: " + e);
