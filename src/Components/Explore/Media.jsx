@@ -41,7 +41,7 @@ const Media = ({ navigateTo, thumbnail, userName, videoTitle, viewsNumber = 0, v
       >
         {isLoading && <Spinner />} {/* Show spinner while loading */}
         <img
-          src={`https://site-blisio.netlify.app/uploads/${thumbnail[currentThumbnail]}`}
+          src={`https://blisio-backend-d30f62efe387.herokuapp.com/uploads/${thumbnail[currentThumbnail]}`}
           className="w-full h-full"
           onLoad={handleImageLoad}
           style={{ display: isLoading ? 'none' : 'block' }}

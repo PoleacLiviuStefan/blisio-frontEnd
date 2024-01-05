@@ -74,13 +74,13 @@ const MediaPage = () => {
                     </div>
                 </div>
                 {imageMaterial.map((img, index) => (
-                    <img key={index} src={`https://site-blisio.netlify.app/uploads/${img}`} className="w-full h-full" alt={`Image ${index}`} />
+                    <img key={index} src={`https://blisio-backend-d30f62efe387.herokuapp.com/uploads/${img}`} className="w-full h-full" alt={`Image ${index}`} />
                 ))}
                 {files.filter(file => file.endsWith('.mp4')).map((vid, index) => (
                     <div key={index} className="relative w-full h-full">
                         <video
                             ref={el => videoRefs.current[index] = el}
-                            src={`https://site-blisio.netlify.app/uploads/${vid}`}
+                            src={`https://blisio-backend-d30f62efe387.herokuapp.com/uploads/${vid}`}
                             className="relative w-full h-full"
                             controls
                         />
