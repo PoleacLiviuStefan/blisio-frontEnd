@@ -37,7 +37,7 @@ const Media = ({ navigateTo, thumbnail, userName, videoTitle, viewsNumber = 0, v
         onMouseOver={() => setIsPreviewed(true)}
         onMouseOut={() => setIsPreviewed(false)}
         onClick={() => navigate(navigateTo)}
-        className="relative flex cursor-pointer justify-center min-h-[15rem] h-[15rem] border-[1px] border-white w-full  lg:w-[20rem]"
+        className="relative flex cursor-pointer justify-center min-h-[15rem] h-[15rem] border-[1px] border-white   w-[20rem]"
       >
         {isLoading && <Spinner />} {/* Show spinner while loading */}
         <img

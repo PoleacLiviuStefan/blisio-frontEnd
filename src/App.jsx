@@ -15,6 +15,14 @@ import SearchResults from './Components/SearchResults/SearchResults';
 import CheckAge from './Components/Explore/CheckAge';
 import { UserContextProvider } from './UserContext';
 import RedirectToExplore from './Components/Redirect/RedirectToExplore';
+import FollowingPage from './Components/Profile/FollowingPage';
+import EditPage from './Components/Profile/EditPage';
+import Feed from './Components/Profile/Feed';
+import LikedAlbums from './Components/Profile/LikedAlbums';
+import Recover from './Components/Recover/Recover';
+import ResetPassword from './Components/Recover/ResetPassword';
+import ChangeEmail from './Components/Profile/ChangeEmail';
+import Notifications from './Components/Profile/Notifications';
 
 const App = () => {
   axios.defaults.baseURL = "https://blisio-backend-d30f62efe387.herokuapp.com/api"; //live
@@ -48,8 +56,16 @@ const App = () => {
           <Route path="/explore/new" element={<ExploreNew />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/recover" element={<Recover />} />
+          <Route path="/reset-email/:id/:token" element={<ChangeEmail /> } />
+          <Route path="/reset-password/:id/:token" element={<ResetPassword /> } />
+          <Route path="/edit-profile" element={<EditPage />} />
           <Route path="/upload" element={<Upload />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/feed" element={<Feed /> } />
+          <Route path="/liked-videos" element={<LikedAlbums />} />
           <Route path="/user/:username" element={<Profile />} />
+          <Route path="/user/:username/following" element={<FollowingPage />} />
           <Route path="/media/:albumCode" element={<MediaPage />} />
           <Route path="/search/:query" element={<SearchResults />} />
           {/* Additional routes can be added here */}

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Media from "./Media";
-import CheckAge from "./CheckAge";
+import Media from "../Explore/Media";
+
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-const Explore = () => {
+const Feed = () => {
   const [albums, setAlbums] = useState([]);
   const [currentPage, setPage] = useState(0);
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Explore = () => {
   const numberOfPages = Math.ceil(albums.length / 15);
 
   useEffect(() => {
-    axios.get("/getMediaAll") // Replace with your actual API endpoint
+    axios.get("/getMediaFromFollowing") // Replace with your actual API endpoint
       .then((res) => {
         console.log(res.data.albums)
         setAlbums(res.data.albums || []);
@@ -51,26 +51,9 @@ const Explore = () => {
     >
       
       <div className="flex flex-col w-[90%] lg:w-[65rem] py-[4rem] lg:py-[8rem]">
-        <h1 className="text-[18px] lg:text-[28px] font-bold">EXPLORE</h1>
-        <ul className="flex my-4 gap-4 lg:text-[20px] font-extrabold text-white">
-          <li className="flex flex-col">
-            <a
-              onClick={() => navigate("/explore")}
-              className="text-white cursor-pointer hover:text-white px-4 bg-[#ff0000] rounded-[5px]"
-            >
-              HOT
-            </a>
-          </li>
-          <li className="flex flex-col">
-            <a
-              onClick={() => navigate("/explore/new")}
-              className="text-white cursor-pointer hover:text-white px-4 rounded-[5px]"
-            >
-              NEW
-            </a>
-          </li>
-        </ul>
-        <div className="flex gap-10 justify-center lg:justify-start flex-wrap w-full">
+        <h1 className="text-[18px] lg:text-[28px] font-bold">FEED</h1>
+
+        <div className="mt-[1rem] flex gap-10 justify-center lg:justify-start flex-wrap w-full">
           {albums.map((album, index) => {
             const images = album.files.filter(
               (file) =>
@@ -94,7 +77,8 @@ const Explore = () => {
             );
           })}
         </div>
-        <div className="flex items-center w-full justify-center text-[26px] text-white ">
+        {
+          albums.length!==0 ?    <div className={`flex items-center w-full justify-center text-[26px] text-white `}>
           <a
             onClick={() => {
               if (!(currentPage === 0 || currentPage === 1)) {
@@ -127,9 +111,13 @@ const Explore = () => {
             <FaAngleRight />
           </a>
         </div>
+        :
+        <p className="text-gray-300">Here you can see the videos of the people you follow</p>
+        }
+     
       </div>
     </div>
   );
 };
 
-export default Explore;
+export default Feed;

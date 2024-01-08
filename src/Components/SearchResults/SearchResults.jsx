@@ -39,8 +39,8 @@ const SearchResults = () => {
 
     return (
         <div className={`flex flex-col items-center relative font-montSerrat bg-[#1b1e20] min-w-screen w-full min-h-screen h-full`}>
-            <div className="flex flex-col w-full lg:w-[65rem] py-[4rem] lg:py-[8rem]">
-                <h1 className="text-[28px] font-bold">Search Results for "{query}"</h1>
+            <div className="flex flex-col w-[90%] lg:w-[65rem] py-[4rem] lg:py-[8rem]">
+                <h1 className="text-[18px] lg:text-[28px] font-bold">Search Results for "{query}"</h1>
                 <div className="flex mt-10 gap-10 justify-center lg:justify-start flex-wrap w-full">
                     {albums.map((album, index) => {
                         const images = album.files.filter(file => file.endsWith('png') || file.endsWith('jpeg') || file.endsWith('jpg'));
